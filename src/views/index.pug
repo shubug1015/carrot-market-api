@@ -1,0 +1,13 @@
+html
+    head
+        link(href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet")
+        link(rel="stylesheet" href="/public/index.css")
+    body
+        div.p-16
+            h1.text-4xl.font-bold Home
+            div.mt-8
+                a#fb-login.rounded.inline-block.bg-blue-500.text-white.text-base.p-4.cursor-pointer Login with Facebook
+                a.bg-gray-50.rounded.text-base.p-4.inline-block.ml-2(href="/logout") Logout
+        script.
+            window.APP_CONFIG = JSON.parse("!{APP_CONFIG_JSON}")
+        script(src="/public/fb.js")
