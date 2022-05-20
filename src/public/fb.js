@@ -1,6 +1,6 @@
 // initialize Facebook SDK
 
-// @ts-ignore
+// @ts-check
 /* eslint-disable */
 
 window.fbAsyncInit = () => {

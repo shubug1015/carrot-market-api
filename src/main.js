@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-check
 /* eslint-disable */
 
 require('dotenv').config()

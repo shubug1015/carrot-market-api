@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-check
 /* eslint-disable */
 
 const express = require('express')
@@ -9,7 +9,7 @@ const router = express.Router()
 router.post('/auth/facebook', async (req, res) => {
   const { access_token: fbUserAccessToken } = req.query
 
-  if (typeof fbUserAccessToken !== 'string') {
+  if (typeof fbUserAccessToken!='string') {
     res.sendStatus(400)
     return
   }

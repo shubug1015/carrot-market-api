@@ -1,4 +1,6 @@
-// @ts-ignore
+// index.pug handling
+
+// @ts-check
 /* eslint-disable */
 
 const express = require('express')
@@ -7,6 +9,7 @@ const { FB_APP_ID } = require('../fb')
 const router = express.Router()
 
 router.get('/', (req, res) => {
+  console.log('userId', req.userId)
   res.render('index', {
     userId: req.userId,
     APP_CONFIG_JSON: JSON.stringify({

@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-check
 /* eslint-disable */
 
 const express = require('express')
@@ -12,12 +12,28 @@ app.set('view engine', 'pug')
 const userRouter = require('./routers/user')
 const mainRouter = require('./routers/main')
 const setupPassportFBAuth = require('./passport-auth-fb')
+const { verifyJWT } = require('./jwt')
+const { getUsersCollection } = require('./mongodb')
 
 app.use(cookieParser())
 app.use(async (req, res, next) => {
   const { access_token } = req.cookies
-  if (access_token) {
-    // implement
+  if(access_token) {
+    try {
+      const userId = await verifyJWT(access_token)
+      if(userId) {
+        const users = await getUsersCollection()
+        const user = await users.findOne({ // findOne이 안 먹는 이유는?
+          id: userId,
+        })
+        if(user) {
+          req.userId = user.id
+        }
+      }
+    }
+    catch(e) {
+      console.log('error', e)
+    }
   }
   next()
 })

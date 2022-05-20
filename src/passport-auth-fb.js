@@ -1,4 +1,4 @@
-// @ts-ignore
+// @ts-check
 /* eslint-disable */
 
 const passport = require('passport')
@@ -8,11 +8,8 @@ const {
   FB_APP_ID,
   FB_CLIENT_SECRET,
   getUserAccessTokenForFacebookAccessToken,
-} = require('../../cotato-oAuth/src/fb')
+} = require('../../carrot-market-api/src/fb')
 
-/**
- * @param {import('express').Express} app
- */
 function setupFBAuth(app) {
   passport.use(
     new FacebookStrategy(
