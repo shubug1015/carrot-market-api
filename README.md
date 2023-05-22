@@ -1,3 +1,6 @@
-# Carrot Market
+# Carrot Market Api
+> 당근마켓 클론코딩(Backend)
 
-Carrot Market Clone using Node.JS express.
+
+## 기술 스택
+JavaScript, Node.Js, Express
